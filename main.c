@@ -99,9 +99,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim2){
 		  tank_position--;
 	  }
 	  if (Xaxis <1200){
-	  		  removecar(0,tank_position);
-	  		  tank_position++;
-	  	  }
+		  removecar(0,tank_position);
+		  tank_position++;
+	  }
   }
 uint8_t button_press_count = 0;
 uint8_t times_count = 0; // smooth input
@@ -114,20 +114,20 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
     if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_RESET && button_press_count==2 ) // 进入第二次时候 加一个暂停的中断
     {
-    		button_press_count++;
-            // 在串口中打印当前时间和按钮按下次数
-            sprintf(msg, "Time:%d Button Pressed: %d\r\n", times_count, button_press_count);
-            HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+		button_press_count++;
+		// 在串口中打印当前时间和按钮按下次数
+		sprintf(msg, "Time:%d Button Pressed: %d\r\n", times_count, button_press_count);
+		HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
 
     }
     if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_RESET && button_press_count==3 ) // 进入暂停后再离开回到第二次
-        {
-        	button_press_count = 2;
-                // 在串口中打印当前时间和按钮按下次数
-			sprintf(msg, "Time:%d Button Pressed: %d\r\n", times_count, button_press_count);
-			HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+	{
+		button_press_count = 2;
+			// 在串口中打印当前时间和按钮按下次数
+		sprintf(msg, "Time:%d Button Pressed: %d\r\n", times_count, button_press_count);
+		HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
 
-        }
+	}
 }
 /**
   * @brief  The application entry point.
