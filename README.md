@@ -38,19 +38,10 @@ This is a simple 2D plane game for undergraduate digital design coursework devel
 3. Compile and flash to the board.
 4. Use serial monitor or external display (e.g. OLED) for game interface.
 
-## 🖥️ Dependencies
-
-- STM32Cube HAL Drivers
-- CMSIS
-- Optional: u8g2 / SSD1306 display driver (if you use a screen)
-
-## 📷 Demo (Optional)
-
-_Add gameplay GIF or hardware setup photo here if available._
 
 ## 📄 License
 
-MIT License *(or specify another license)*
+MIT License
 
 ---
 
